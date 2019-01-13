@@ -27,7 +27,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation "com.android.support:appcompat-v7:$versions.supportLibrary"
     implementation "com.android.support:design:$versions.supportLibrary"
     implementation "com.android.support.constraint:constraint-layout:$versions.constraint"
@@ -37,6 +37,8 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$versions.lifecycle"
 
     implementation "com.google.dagger:dagger:$versions.dagger"
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
     kapt "com.google.dagger:dagger-compiler:$versions.dagger"
 
     implementation "io.reactivex.rxjava2:rxjava:$versions.rxJava"

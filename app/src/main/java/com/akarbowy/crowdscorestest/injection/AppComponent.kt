@@ -1,7 +1,7 @@
 package com.akarbowy.crowdscorestest.injection
 
 import android.content.Context
-import com.akarbowy.crowdscorestest.MainViewModel
+import com.akarbowy.crowdscorestest.ui.main.MainViewModel
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
