@@ -29,19 +29,20 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation "com.android.support:appcompat-v7:$versions.supportLibrary"
+    implementation "com.android.support:support-v4:$versions.supportLibrary"
     implementation "com.android.support:design:$versions.supportLibrary"
     implementation "com.android.support.constraint:constraint-layout:$versions.constraint"
     implementation "com.android.support:support-vector-drawable:$versions.supportLibrary"
     implementation "com.android.support:recyclerview-v7:$versions.supportLibrary"
 
     implementation "android.arch.lifecycle:extensions:$versions.lifecycle"
+    implementation "android.arch.lifecycle:extensions:$versions.lifecycle"
 
     implementation "com.google.dagger:dagger:$versions.dagger"
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'android.arch.lifecycle:extensions:1.1.1'
     kapt "com.google.dagger:dagger-compiler:$versions.dagger"
 
     implementation "io.reactivex.rxjava2:rxjava:$versions.rxJava"
+    implementation "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid"
     implementation "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin"
 
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"

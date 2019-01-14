@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         navigation.selectedItemId = R.id.navigation_matches
 
         viewModel.state.observe(::getLifecycle, ::updateUI)
-
     }
 
     private fun updateUI(mainAction: MainViewModel.MainAction?) {

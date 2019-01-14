@@ -7,15 +7,25 @@
         android:background="@color/background"
         tools:context=".ui.listing.ListingFragment">
 
-    <TextView
-            android:id="@+id/textten"
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:visibility="gone"
+            tools:listitem="@layout/listing_item"/>
+
+    <include
+            android:id="@+id/error"
+            android:visibility="gone"
+            layout="@layout/listing_error"/>
 
     <ProgressBar
             android:id="@+id/indicator"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
 </FrameLayout>
