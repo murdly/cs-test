@@ -13,7 +13,7 @@ data class MatchesResponse(
 @JsonSerializable
 data class Info(
     @Json(name = "relationships") val included: Relationship? = null,
-    @Json(name = "attributes") val data: Attribute? = null,
+    @Json(name = "attributes") val attribute: Attribute? = null,
     @Json(name = "type") val type: String? = null,  //matches, teams, rounds, state_events, regions, competitions
     @Json(name = "id") val id: String? = null
 )
@@ -30,7 +30,7 @@ data class Relationship(
 
 @JsonSerializable
 data class RelationshipType(
-    @Json(name = "data") val name: RelationshipData? = null
+    @Json(name = "data") val data: RelationshipData? = null
 )
 
 @JsonSerializable

@@ -10,5 +10,6 @@
     <string name="day_tomorrow">Tomorrow</string>
     <string name="listing_error_title">Oops</string>
     <string name="listing_error_message">Something went wrong</string>
+    <string name="listing_error_retry">Retry</string>
 
 </resources>

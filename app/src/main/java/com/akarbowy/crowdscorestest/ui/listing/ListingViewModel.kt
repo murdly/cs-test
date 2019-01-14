@@ -55,6 +55,12 @@ class ListingViewModel @Inject constructor(
         _state.value = ListingAction.ShowError
     }
 
+    fun retry() {
+        _state.value = ListingAction.ShowLoading
+
+        loadMatches(day)
+    }
+
     sealed class ListingAction {
         object ShowLoading : ListingAction()
         class ShowMatches(val items: List<Competition>) : ListingAction()

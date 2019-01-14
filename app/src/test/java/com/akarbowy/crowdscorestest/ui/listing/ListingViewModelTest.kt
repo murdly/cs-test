@@ -79,6 +79,5 @@ class ListingViewModelTest {
         private val MATCHES_ERROR = Throwable()
     }
 
-
 }
 

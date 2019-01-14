@@ -10,13 +10,14 @@ import com.akarbowy.crowdscorestest.data.days.Day
 import com.akarbowy.crowdscorestest.data.matches.Competition
 import com.akarbowy.crowdscorestest.injection.getViewModel
 import com.akarbowy.crowdscorestest.injection.injector
+import kotlinx.android.synthetic.main.listing_error.*
 import kotlinx.android.synthetic.main.listing_fragment.*
 
 
 class ListingFragment : Fragment() {
 
     private val viewModel by lazy {
-        activity!!.getViewModel { activity!!.injector.listingViewModel }
+        this.getViewModel { activity!!.injector.listingViewModel }
     }
 
     private val competitionsBinder = CompetitionsBinder
@@ -28,7 +29,13 @@ class ListingFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        initUi()
+    }
+
+    private fun initUi() {
         competitionsBinder.setupList(list)
+
+        retry.setOnClickListener { viewModel.retry() }
 
         viewModel.day = arguments?.getSerializable(EXTRA_DAY) as Day
 
