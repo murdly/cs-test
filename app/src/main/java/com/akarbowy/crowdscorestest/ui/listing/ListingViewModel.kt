@@ -4,8 +4,8 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.akarbowy.crowdscorestest.data.days.Day
+import com.akarbowy.crowdscorestest.data.matches.Competition
 import com.akarbowy.crowdscorestest.data.matches.MatchesRepository
-import com.akarbowy.crowdscorestest.data.network.MatchesResponse
 import com.akarbowy.crowdscorestest.extensions.scheduleOn
 import io.reactivex.rxkotlin.subscribeBy
 import timber.log.Timber
@@ -43,7 +43,7 @@ class ListingViewModel @Inject constructor(
         }
     }
 
-    private fun onMatchesLoaded(matches: MatchesResponse) {
+    private fun onMatchesLoaded(matches: List<Competition>) {
         Timber.i("Loaded matches for ${day?.name}")
 
         _state.value = ListingAction.ShowMatches(matches)
@@ -57,7 +57,7 @@ class ListingViewModel @Inject constructor(
 
     sealed class ListingAction {
         object ShowLoading : ListingAction()
-        class ShowMatches(val items: MatchesResponse) : ListingAction()
+        class ShowMatches(val items: List<Competition>) : ListingAction()
         object ShowError : ListingAction()
     }
 }

@@ -9,7 +9,6 @@ import com.akarbowy.crowdscorestest.R
 import com.akarbowy.crowdscorestest.data.days.Day
 import com.akarbowy.crowdscorestest.injection.getViewModel
 import com.akarbowy.crowdscorestest.injection.injector
-import com.akarbowy.crowdscorestest.ui.listing.DayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

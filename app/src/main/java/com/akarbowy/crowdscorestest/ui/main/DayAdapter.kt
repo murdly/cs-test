@@ -1,10 +1,11 @@
-package com.akarbowy.crowdscorestest.ui.listing
+package com.akarbowy.crowdscorestest.ui.main
 
 import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.akarbowy.crowdscorestest.data.days.Day
+import com.akarbowy.crowdscorestest.ui.listing.ListingFragment
 
 
 class DayAdapter(

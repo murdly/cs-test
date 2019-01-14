@@ -10,10 +10,14 @@
     <android.support.v7.widget.RecyclerView
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingBottom="8dp"
+            android:clipToPadding="false"
             android:visibility="gone"
-            tools:listitem="@layout/listing_item"/>
+            tools:listitem="@layout/viewholder_competition"/>
 
     <include
             android:id="@+id/error"

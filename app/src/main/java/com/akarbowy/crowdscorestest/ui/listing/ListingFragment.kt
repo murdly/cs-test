@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.akarbowy.crowdscorestest.R
 import com.akarbowy.crowdscorestest.data.days.Day
-import com.akarbowy.crowdscorestest.data.network.MatchesResponse
+import com.akarbowy.crowdscorestest.data.matches.Competition
 import com.akarbowy.crowdscorestest.injection.getViewModel
 import com.akarbowy.crowdscorestest.injection.injector
 import kotlinx.android.synthetic.main.listing_fragment.*
@@ -19,6 +19,8 @@ class ListingFragment : Fragment() {
         activity!!.getViewModel { activity!!.injector.listingViewModel }
     }
 
+    private val competitionsBinder = CompetitionsBinder
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.listing_fragment, container, false)
     }
@@ -26,9 +28,10 @@ class ListingFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val day = arguments?.getSerializable(EXTRA_DAY) as Day
+        competitionsBinder.setupList(list)
 
-        viewModel.day = day
+        viewModel.day = arguments?.getSerializable(EXTRA_DAY) as Day
+
         viewModel.state.observe(::getLifecycle, ::updateUI)
     }
 
@@ -52,7 +55,8 @@ class ListingFragment : Fragment() {
         error.visibility = View.GONE
     }
 
-    private fun showMatches(items: MatchesResponse) {
+    private fun showMatches(items: List<Competition>) {
+        competitionsBinder.setData(list, items)
         list.visibility = View.VISIBLE
         indicator.visibility = View.GONE
         error.visibility = View.GONE

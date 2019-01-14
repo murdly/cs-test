@@ -3,8 +3,8 @@ package com.akarbowy.crowdscorestest.ui.listing
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import android.arch.lifecycle.Observer
 import com.akarbowy.crowdscorestest.data.days.Day
+import com.akarbowy.crowdscorestest.data.matches.Competition
 import com.akarbowy.crowdscorestest.data.matches.MatchesRepository
-import com.akarbowy.crowdscorestest.data.network.MatchesResponse
 import com.akarbowy.crowdscorestest.helpers.InstantRxSchedulerRule
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
@@ -74,7 +74,7 @@ class ListingViewModelTest {
     companion object {
         private val DAY = Day.Today
 
-        private val MATCHES_SUCCESS = MatchesResponse()
+        private val MATCHES_SUCCESS = listOf<Competition>()
 
         private val MATCHES_ERROR = Throwable()
     }
