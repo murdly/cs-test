@@ -35,7 +35,7 @@ class MatchesAdapter : RecyclerView.Adapter<MatchesAdapter.MatchViewHolder>() {
             val match = matches[position]
 
             homeView.text = match.home?.name
-            scoreView.text = "${match.homeScore} - ${match.awayScore}" //todo future
+            scoreView.text = "${match.homeScore} - ${match.awayScore}"
             awayView.text = match.away?.name
         }
 
