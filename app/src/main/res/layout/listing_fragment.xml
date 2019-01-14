@@ -13,4 +13,9 @@
             android:layout_height="match_parent"
             android:text="Hello"/>
 
+    <ProgressBar
+            android:id="@+id/indicator"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"/>
 </FrameLayout>

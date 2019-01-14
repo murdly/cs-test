@@ -1,4 +1,4 @@
-package com.akarbowy.crowdscorestest.data
+package com.akarbowy.crowdscorestest.data.matches
 
 import dagger.Reusable
 import javax.inject.Inject

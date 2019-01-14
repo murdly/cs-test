@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import com.akarbowy.crowdscorestest.data.days.Day
 
 
 class DayAdapter(
@@ -11,7 +12,7 @@ class DayAdapter(
     fragmentManager: FragmentManager
 ) : FragmentPagerAdapter(fragmentManager) {
 
-    var days = emptyList<DAY>()
+    var days = emptyList<Day>()
 
     override fun getItem(position: Int): Fragment {
         return ListingFragment.newInstance(days[position])

@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.akarbowy.crowdscorestest.R
+import com.akarbowy.crowdscorestest.data.days.Day
 import com.akarbowy.crowdscorestest.injection.getViewModel
 import com.akarbowy.crowdscorestest.injection.injector
-import com.akarbowy.crowdscorestest.ui.listing.DAY
 import com.akarbowy.crowdscorestest.ui.listing.DayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         getViewModel { injector.mainViewModel }
     }
 
-    private val tabs = listOf(DAY.Yesterday, DAY.Today, DAY.Tomorrow)
+    private val dayAdapter = DayAdapter(this, supportFragmentManager)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         toolbar.setNavigationIcon(R.drawable.ic_menu)
 
-        pager.adapter = DayAdapter(this, supportFragmentManager)
-            .apply {
-                days = tabs
-            }
+        pager.adapter = dayAdapter
 
         navigation.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -49,6 +46,22 @@ class MainActivity : AppCompatActivity() {
         })
 
         navigation.selectedItemId = R.id.navigation_matches
+
+        viewModel.state.observe(::getLifecycle, ::updateUI)
+
+    }
+
+    private fun updateUI(mainAction: MainViewModel.MainAction?) {
+        when (mainAction) {
+            is MainViewModel.MainAction.ShowTabs -> setDaysData(mainAction)
+        }
+    }
+
+    private fun setDaysData(mainAction: MainViewModel.MainAction.ShowTabs) {
+        dayAdapter.apply {
+            days = mainAction.items
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -67,7 +80,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun selectTodayTab() {
-        val todayPosition = tabs.indexOf(DAY.Today)
+        val todayPosition = dayAdapter.days.indexOf(Day.Today)
         pager.setCurrentItem(todayPosition, true)
     }
 }

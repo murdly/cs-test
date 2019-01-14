@@ -37,10 +37,10 @@ ext.versions = [
 
         'jUnit'         : '4.12',
         'mockito'       : '2.10.0',
+        'mockito_kotlin': '2.0.0',
         'espresso'      : '3.0.2',
         'runner'        : '1.0.2',
 
         'robolectric'   : '3.4.2',
         'rules'         : '1.0.2',
-        'archCore'      : '1.1.1',
 ]
